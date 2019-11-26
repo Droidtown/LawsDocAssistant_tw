@@ -1,0 +1,132 @@
+body {
+    background-color: #f3faf4;
+    font-size: 16px;
+}
+
+nav {
+    /*background-color: #ffffcc;*/
+}
+
+nav .navbar-brand-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.funkyradio label {
+    width: 100%;
+    border-radius: 3px;
+    border: 1px solid #D1D3D4;
+    font-weight: normal;
+    padding-right: 15px;
+}
+
+.funkyradio input[type="checkbox"]:empty {
+    display: none;
+}
+
+.funkyradio input[type="checkbox"]:empty~label {
+    position: relative;
+    line-height: 41px;
+    text-indent: 3.25em;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: #888;
+}
+
+.funkyradio input[type="checkbox"]:empty~label:before {
+    position: absolute;
+    display: block;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    content: '';
+    width: 2.5em;
+    background: #D1D3D4;
+    border-radius: 3px 0 0 3px;
+}
+
+.funkyradio input[type="checkbox"]:hover:not(:checked)~label {
+    color: #000;
+}
+
+.funkyradio input[type="checkbox"]:hover:not(:checked)~label:before {
+    content: '';
+    text-indent: .75em;
+    color: #fff;
+}
+
+.funkyradio-success input[type="checkbox"]:hover:not(:checked)~label:before {
+    background-color: #28a745;
+}
+
+.funkyradio-danger input[type="checkbox"]:hover:not(:checked)~label:before {
+    background-color: #dc3545;
+}
+
+.funkyradio-warning input[type="checkbox"]:hover:not(:checked)~label:before {
+    color: #000;
+    background-color: #ffc107;
+}
+
+.funkyradio-primary input[type="checkbox"]:hover:not(:checked)~label:before {
+    background-color: #007bff;
+}
+
+.funkyradio input[type="checkbox"]:checked~label {
+    border: 1px solid #888;
+    color: #000;
+}
+
+.funkyradio input[type="checkbox"]:checked~label:before {
+    font-family: FontAwesome;
+    content: '\f00c';
+    text-indent: .75em;
+    color: #fff;
+    background-color: #ccc;
+}
+
+.funkyradio input[type="checkbox"]:focus~label:before {
+    box-shadow: 0 0 0 3px #999;
+}
+
+.funkyradio-success input[type="checkbox"]:checked~label:before {
+    background-color: #28a745;
+}
+
+.funkyradio-danger input[type="checkbox"]:checked~label:before {
+    background-color: #dc3545;
+}
+
+.funkyradio-warning input[type="checkbox"]:checked~label:before {
+    color: #000;
+    background-color: #ffc107;
+}
+
+.funkyradio-primary input[type="checkbox"]:checked~label:before {
+    background-color: #007bff;
+}
+
+.card-header {
+    background-color: #d1ecf1;
+}
+
+.articutTitle {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.card-body {
+    background-color: #f3faf4;
+}
+
+.badge {
+    font-size: 18px;
+}
+
+.articutAlertTitle {
+    font-size: 20px;
+    font-weight: bold;
+}

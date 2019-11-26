@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="utf-8">
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../css/popup.css" rel="stylesheet" type="text/css" />
+    <script src="../vendor/jquery-3.1.0.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/popup.js"></script>
+</head>
+<body>
+    <div class="card">
+        <div class="card-header">
+            <div class="row d-flex justify-content-between align-items-center">
+                <div class="col-auto">
+                    <img src="../img/icon128.png" width="60" />
+                </div>
+                <div class="col text-center articutTitle">
+                    Articut<br/>法學資料檢索助理
+                </div>
+            </div>
+        </div>
+        <div class="card-body bg-info p-0">
+            <div class="row">
+                <div class="col-12">
+                    <ul class="list-group">
+                        <li class="list-group-item articutBackground" id="articutAuth">
+                            <div class="row">
+                                <div class="col-auto">
+                                    Username
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="w-100" id="articutUsername" />
+                                </div>
+                                <div class="w-100 mb-2"></div>
+                                <div class="col-auto">
+                                    ApiKey
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="w-100" id="articutApiKey" />
+                                </div>
+                                <div class="w-100 mb-3"></div>
+                                <div class="col-12">
+                                    <button class="btn btn-success btn-block" id="articutLogin"><i class="fa fa-user"></i> 登入</button>
+                                </div>
+                                <div class="col-12 mb-2">
+                                    <small class="text-danger" id="articutLoginMsg"></small>
+                                </div>
+                                <div class="col-12">
+                                    <a class="btn btn-primary btn-block" href="https://api.droidtown.co/login/#registerDiv" target="_blank"><i class="fa fa-sign-in"></i> 註冊</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item articutBackground" id="articutMember">
+                            <div class="row">
+                                <div class="col-12 mb-1">
+                                    <span id="articutMemberUsername">Hi, xxxxx</span>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <span class="articutBalance" id="articutBalance"><span class='text-primary'>您的額度</span>剩餘 0 字。</span>
+                                </div>
+                                <div class="col-12 mb-2">
+                                    <a class="btn btn-info btn-block" id="articutPurchase" href="https://api.droidtown.co/product/" target="_blank"><i class="fa fa-shopping-cart"></i> 購買 Articut API 額度</a>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-warning btn-block" id="articutLaws"><i class="fa fa-hand-o-right"></i> 解析本頁法律文件</button>
+                                </div>
+                                <div class="col-12 mb-2">
+                                    <small class="text-danger" id="articutMsg"></small>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-danger btn-block" id="articutLogout"><i class="fa fa-sign-out"></i> 登出</button>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="https://api.droidtown.co/"><i class="fa fa-external-link"></i> Articut 中文斷詞暨詞性標記服務</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="https://github.com/Droidtown/ArticutAPI"><i class="fa fa-github fa-lg"></i> ArticutAPI Github</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

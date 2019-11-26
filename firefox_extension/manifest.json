@@ -1,0 +1,39 @@
+{
+	"name": "Articut 法學資料檢索助理",
+	"description": "Articut 法學資料檢索助理：搭配『司法院法學資料檢索系統』使用，幫您快速標出法律相關重點！",
+	"author": "Droidtown",
+	"version": "1.0.0",
+	"manifest_version": 2,
+	"icons": {
+		"48": "img/icon48.png",
+		"96": "img/icon96.png"
+	},
+	"permissions": [
+		"activeTab",
+		"storage",
+		"tabs"
+	],
+	"background": {
+		"scripts": ["js/background.js"]
+	},
+	"page_action": {
+		"browser_style": false,
+		"default_icon": {
+			"19": "img/icon19.png",
+			"38": "img/icon38.png"
+		},
+		"default_title": "Articut 法學資料檢索助理",
+		"default_popup": "html/popup.html",
+		"show_matches": ["https://law.judicial.gov.tw/FJUD/*"]
+	},
+	"content_scripts": [{
+		"matches": ["https://law.judicial.gov.tw/FJUD/*"],
+		"css": ["css/content.css"],
+		"js": [
+			"vendor/jquery-3.1.0.min.js",
+			"js/content.js"
+		],
+		"run_at": "document_end",
+		"all_frames": true
+	}]
+}

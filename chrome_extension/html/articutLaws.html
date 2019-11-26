@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Articut 法學資料檢索助理</title>
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="../vendor/animate.min.css" rel="stylesheet" type="text/css" />
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../css/articutLaws.css" rel="stylesheet" type="text/css" />
+    <script src="../vendor/jquery-3.1.0.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/articutLaws.js"></script>
+</head>
+
+<body class="container-fluid">
+    <div class="row">
+        <div class="col-9">
+            <nav class="navbar navbar-expand navbar-light my-2">
+                <div class="row">
+                    <div class="col-auto">
+                        <a class="navbar-brand" href="#"><img src="../img/icon48.png" width="30" /> <span
+                                class="navbar-brand-title">Articut 法學資料檢索助理</span></a>
+                    </div>
+                    <div class="col-auto funkyradio funkyradio-success">
+                        <input type="checkbox" id="articutLawArticle" />
+                        <label for="articutLawArticle">法條索引</label>
+                    </div>
+                    <div class="col-auto funkyradio funkyradio-danger">
+                        <input type="checkbox" id="articutCrime" />
+                        <label for="articutCrime">罪名</label>
+                    </div>
+                    <div class="col-auto funkyradio funkyradio-warning">
+                        <input type="checkbox" id="articutCriminalResponsibility" />
+                        <label for="articutCriminalResponsibility">刑責</label>
+                    </div>
+                    <div class="col-auto funkyradio funkyradio-primary">
+                        <input type="checkbox" id="articutEventRef" />
+                        <label for="articutEventRef">事件參照</label>
+                    </div>
+                </div>
+            </nav>
+            <div class="pl-3" id="articutLawsResult">test</div>
+        </div>
+        <div class="col-3 p-3 pr-4">
+            <div class="alert alert-secondary my-4" id="articutHistoryAlert" role="alert">
+                <p class="articutAlertTitle">歷審裁判</p>
+                <ul></ul>
+            </div>
+            <div class="alert alert-success mb-4" id="articutLawArticleAlert" role="alert" style="display: none;">
+                <p class="articutAlertTitle"></p>
+                <ul></ul>
+            </div>
+            <div class="alert alert-danger mb-4" id="articutCrimeAlert" role="alert" style="display: none;">
+                <p class="articutAlertTitle"></p>
+                <ul></ul>
+            </div>
+            <div class="alert alert-warning mb-4" id="articutCriminalResponsibilityAlert" role="alert"
+                style="display: none;">
+                <p class="articutAlertTitle"></p>
+                <ul></ul>
+            </div>
+            <div class="alert alert-primary mb-4" id="articutEventRefAlert" role="alert" style="display: none;">
+                <p class="articutAlertTitle"></p>
+                <ul></ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+._*
+*.pyc
+*.wpu
+*.wpr
+*.log
+./tmpPanel/*
+.DS_Store
+*.iml
+.gradle
+/local.properties
+.idea
+/build
+/captures
+.externalNativeBuild

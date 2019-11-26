@@ -1,0 +1,21 @@
+body {
+    overflow: hidden;
+}
+
+.card {
+    width: 300px;
+    font-size: 16px;
+}
+
+.articutTitle {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.articutBackground {
+    background-color: #F5F5F5;
+}
+
+.articutBalance {
+    font-size: 18px;
+}
