@@ -15,6 +15,11 @@
 2. 將內文送至 https://api.droidtown.co/Articut/API/ 進行斷詞
 3. 將斷詞結果送至 https://api.droidtown.co/Articut/Toolkit/Laws/ 取得法律相關條文
 
+## 下載
+
+* [Chrome Extension](https://chrome.google.com/webstore/detail/articut-%E6%B3%95%E5%AD%B8%E8%B3%87%E6%96%99%E6%AA%A2%E7%B4%A2%E5%8A%A9%E7%90%86/jobdngoklnpmnplbbobpiohhppbaojia?hl=zh-TW&authuser=2)
+* [Firefox Extension](https://addons.mozilla.org/zh-TW/firefox/addon/articut-%E6%B3%95%E5%AD%B8%E8%B3%87%E6%96%99%E6%AA%A2%E7%B4%A2%E5%8A%A9%E7%90%86/)
+
 ## 操作範例
 
 1. 點選`解析本頁法律文件`
