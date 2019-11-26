@@ -82,7 +82,7 @@ $(document).ready(function () {
                     judText = judText.substring(judText.indexOf("主文"), judText.indexOf("書記官")).replace("主文", "主文。").replace("理由", "理由。").replace("犯罪事實", "犯罪事實。");
                     if (judText != "") {
                         $.post({
-                            url: SERVER + "Articut/Source/",
+                            url: SERVER + "Articut/API/",
                             dataType: "json",
                             contentType: 'application/json; charset=UTF-8',
                             data: JSON.stringify({
@@ -90,9 +90,7 @@ $(document).ready(function () {
                                 "api_key": api_key,
                                 "input_str": judText,
                                 "version": 'latest',
-                                "level": 'lv2',
-                                "source": 'ChExt',
-                                "note": 'Articut 法學資料檢索助理'
+                                "level": 'lv2'
                             }),
                             success: function (resp) {
                                 if (resp.status) {
