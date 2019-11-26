@@ -8,7 +8,7 @@ chrome.runtime.onInstalled.addListener(function () {
             conditions: [
                 new chrome.declarativeContent.PageStateMatcher({
                     pageUrl: {
-                        urlMatches: 'https://law.judicial.gov.tw/(FLAW|FINT|FJUD)/.+'
+                        urlMatches: 'https://law.judicial.gov.tw/FJUD/.+'
                     },
                 })
             ],
