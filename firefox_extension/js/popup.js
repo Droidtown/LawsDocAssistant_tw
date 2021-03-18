@@ -58,7 +58,7 @@ $(document).ready(function () {
 
     $(document).on('click', '#articutLaws', function (e) {
         $('#articutLaws').attr("disabled", true);
-        $('#articutLaws').html('<i class="fa fa-spinner fa-pulse"></i> 解析中 ...');
+        $('#articutLaws').html(DOMPurify.sanitize('<i class="fa fa-spinner fa-pulse"></i> 解析中，請稍候 ...', { SAFE_FOR_JQUERY: true }));
         browser.tabs.query({
             active: true,
             currentWindow: true
@@ -82,7 +82,7 @@ $(document).ready(function () {
                     judText = judText.substring(judText.indexOf("主文"), judText.indexOf("書記官")).replace("主文", "主文。").replace("理由", "理由。").replace("犯罪事實", "犯罪事實。");
                     if (judText != "") {
                         $.post({
-                            url: SERVER + "Articut/API/",
+                            url: SERVER + "Articut/Source/",
                             dataType: "json",
                             contentType: 'application/json; charset=UTF-8',
                             data: JSON.stringify({
@@ -90,7 +90,9 @@ $(document).ready(function () {
                                 "api_key": api_key,
                                 "input_str": judText,
                                 "version": 'latest',
-                                "level": 'lv2'
+                                "level": 'lv2',
+                                "source": 'FxExt',
+                                "note": 'Articut 法學資料檢索助理'
                             }),
                             success: function (resp) {
                                 if (resp.status) {
@@ -118,26 +120,26 @@ $(document).ready(function () {
 
                                             } else {
                                                 $('#articutLaws').attr("disabled", false);
-                                                $('#articutLaws').html('<i class="fa fa-hand-o-right"></i> 解析本頁法律文件');
+                                                $('#articutLaws').html(DOMPurify.sanitize('<i class="fa fa-hand-o-right"></i> 解析本頁法律文件', { SAFE_FOR_JQUERY: true }));
                                                 $('#articutMsg').text(resp.msg);
                                             }
                                         }
                                     });
                                 } else {
                                     $('#articutLaws').attr("disabled", false);
-                                    $('#articutLaws').html('<i class="fa fa-hand-o-right"></i> 解析本頁法律文件');
+                                    $('#articutLaws').html(DOMPurify.sanitize('<i class="fa fa-hand-o-right"></i> 解析本頁法律文件', { SAFE_FOR_JQUERY: true }));
                                     $('#articutMsg').text(resp.msg);
                                 }
                             }
                         });
                     } else {
                         $('#articutLaws').attr("disabled", false);
-                        $('#articutLaws').html('<i class="fa fa-hand-o-right"></i> 解析本頁法律文件');
+                        $('#articutLaws').html(DOMPurify.sanitize('<i class="fa fa-hand-o-right"></i> 解析本頁法律文件', { SAFE_FOR_JQUERY: true }));
                         $('#articutMsg').text("出了點小狀況，重新整理後再試一次！");
                     }
                 } else {
                     $('#articutLaws').attr("disabled", false);
-                    $('#articutLaws').html('<i class="fa fa-hand-o-right"></i> 解析本頁法律文件');
+                    $('#articutLaws').html(DOMPurify.sanitize('<i class="fa fa-hand-o-right"></i> 解析本頁法律文件', { SAFE_FOR_JQUERY: true }));
                     $('#articutMsg').text("出了點小狀況，重新整理後再試一次！");
                 }
             });
@@ -197,11 +199,11 @@ function getPublicBalance() {
 
 function setBalance(status, balance) {
     if (status) {
-        $('#articutBalance').html("<span class='text-primary'>您的額度</span>剩餘 " + balance + " 字。");
+        $('#articutBalance').html(DOMPurify.sanitize("<span class='text-primary'>您的額度</span>剩餘 " + balance + " 字。", { SAFE_FOR_JQUERY: true }));
         $('#articutPurchase').hide();
         $('#articutLaws').show();
     } else {
-        $('#articutBalance').html("<span class='text-danger'>公用測試額度</span>剩餘 " + balance + " 字。");
+        $('#articutBalance').html(DOMPurify.sanitize("<span class='text-danger'>公用測試額度</span>剩餘 " + balance + " 字。", { SAFE_FOR_JQUERY: true }));
         if (balance == 0) {
             $('#articutLaws').hide();
             $('#articutPurchase').show();
