@@ -2,7 +2,7 @@
 	"name": "Articut 法學資料檢索助理",
 	"description": "Articut 法學資料檢索助理：搭配『司法院法學資料檢索系統』使用，幫您快速標出法律相關重點！",
 	"author": "Droidtown",
-	"version": "1.0.1",
+	"version": "1.0.3",
 	"manifest_version": 2,
 	"icons": {
 		"16": "img/icon16.png",
@@ -32,7 +32,7 @@
 			"js/content.js"
 		],
 		"run_at": "document_end",
-		"all_frames": true
+		"all_frames": false
 	}],
 	"storage": {
 		"local_schema": "schema.json"

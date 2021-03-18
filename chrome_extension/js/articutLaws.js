@@ -25,11 +25,12 @@ $(document).ready(function () {
 
     $('#articutCrime').change(function () {
         for (var i = 0; i < crime_list.length; i++) {
+            var text = crime_list[i].replace(/。/g, "。<br>").replace(/：/g, "：<br>");
             for (var j = 0; j < $('body .card-body').length; j++) {
                 if (this.checked) {
-                    $($('body .card-body')[j]).html($($('body .card-body')[j]).html().replace(new RegExp(crime_list[i], "g"), '<span class="badge badge-danger">' + crime_list[i] + '</span>'));
+                    $('body .card-body').eq(j).html($('body .card-body').eq(j).html().replace(new RegExp(escapeRegExp(text), "g"), '<span class="badge badge-danger">' + text + '</span>'));
                 } else {
-                    $($('body .card-body')[j]).html($($('body .card-body')[j]).html().replace(new RegExp('<span class="badge badge-danger">' + crime_list[i] + '</span>', "g"), crime_list[i]));
+                    $('body .card-body').eq(j).html($('body .card-body').eq(j).html().replace(new RegExp(escapeRegExp('<span class="badge badge-danger">' + text + '</span>'), "g"), text));
                 }
             }
         }
@@ -42,11 +43,12 @@ $(document).ready(function () {
 
     $('#articutCriminalResponsibility').change(function () {
         for (var i = 0; i < criminal_responsibility_list.length; i++) {
+            var text = criminal_responsibility_list[i].replace(/。/g, "。<br>").replace(/：/g, "：<br>");
             for (var j = 0; j < $('body .card-body').length; j++) {
                 if (this.checked) {
-                    $($('body .card-body')[j]).html($($('body .card-body')[j]).html().replace(new RegExp(criminal_responsibility_list[i], "g"), '<span class="badge badge-warning">' + criminal_responsibility_list[i] + '</span>'));
+                    $('body .card-body').eq(j).html($('body .card-body').eq(j).html().replace(new RegExp(escapeRegExp(text), "g"), '<span class="badge badge-warning">' + text + '</span>'));
                 } else {
-                    $($('body .card-body')[j]).html($($('body .card-body')[j]).html().replace(new RegExp('<span class="badge badge-warning">' + criminal_responsibility_list[i] + '</span>', "g"), criminal_responsibility_list[i]));
+                    $('body .card-body').eq(j).html($('body .card-body').eq(j).html().replace(new RegExp(escapeRegExp('<span class="badge badge-warning">' + text + '</span>'), "g"), text));
                 }
             }
         }
@@ -59,11 +61,12 @@ $(document).ready(function () {
 
     $('#articutEventRef').change(function () {
         for (var i = 0; i < event_ref_list.length; i++) {
+            var text = event_ref_list[i].replace(/。/g, "。<br>").replace(/：/g, "：<br>");
             for (var j = 0; j < $('body .card-body').length; j++) {
                 if (this.checked) {
-                    $($('body .card-body')[j]).html($($('body .card-body')[j]).html().replace(new RegExp(event_ref_list[i], "g"), '<span class="badge badge-primary">' + event_ref_list[i] + '</span>'));
+                    $('body .card-body').eq(j).html($('body .card-body').eq(j).html().replace(new RegExp(escapeRegExp(text), "g"), '<span class="badge badge-primary">' + text + '</span>'));
                 } else {
-                    $($('body .card-body')[j]).html($($('body .card-body')[j]).html().replace(new RegExp('<span class="badge badge-primary">' + event_ref_list[i] + '</span>', "g"), event_ref_list[i]));
+                    $('body .card-body').eq(j).html($('body .card-body').eq(j).html().replace(new RegExp(escapeRegExp('<span class="badge badge-primary">' + text + '</span>'), "g"), text));
                 }
             }
         }
@@ -132,7 +135,7 @@ function init(result, lawsResult, judHistory, judInfo) {
                 }
                 content += text;
                 if (["。", "："].includes(text)) {
-                    content += "<br/>";
+                    content += "<br>";
                 }
             }
         }
@@ -164,7 +167,7 @@ function setAlert(alertName, alertTitle, classname, dataList) {
         $('#' + alertName + ' ul').append('<li>沒有相關資料</li>');
     } else {
         for (var i = 0; i < dataList.length; i++) {
-            $('#' + alertName + ' ul').append('<li><a href="#" class="' + classname + ' ' + classname + '_' + i + '">' + dataList[i] + '</a></li>');
+            $('#' + alertName + ' ul').append('<li><a href="#" class="' + classname + '">' + dataList[i] + '</a></li>');
         }
         registerLink(classname);
     }
@@ -172,14 +175,13 @@ function setAlert(alertName, alertTitle, classname, dataList) {
 
 function registerLink(name) {
     $('.' + name).click(function(e) {
-        event.preventDefault();
-        event.stopPropagation();
-        var index = parseInt(this.classList[1].replace(name + "_", ""));
-        animateBadge(name, index);
+        e.preventDefault();
+        e.stopPropagation();
+        animateBadge(name, $(this).text());
     });
 }
 
-function animateBadge(name, index) {
+function animateBadge(name, text) {
     var classname = "";
     switch (name) {
         case "law_article":
@@ -196,14 +198,31 @@ function animateBadge(name, index) {
             break;
     }
 
+    var indexList = [];
+    for (var i=0; i<$('.badge.badge-' + classname).length; i++) {
+        if ($('.badge.badge-' + classname).eq(i).text() == text) {
+            indexList.push(i);
+        }
+    }
+    var index = 0;
+    if (indexList.length > 0) {
+        index = indexList[Math.floor(Math.random() * indexList.length)];
+    }
+
     if (classname != "") {
         if ($('.badge.badge-' + classname).length > index) {
             var node = $('.badge.badge-' + classname)[index];
             $('html, body').scrollTop($(node).offset().top);
+            $(node).css("display", "inline-block");
             node.classList.add("animated", "heartBeat");
             setTimeout(function() {
                 node.classList.remove("animated", "heartBeat");
+                $(node).css("display", "inline");
             }, 1000);
         }
     }
 }
+
+function escapeRegExp(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
+  }

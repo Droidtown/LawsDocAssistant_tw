@@ -58,7 +58,7 @@ $(document).ready(function () {
 
     $(document).on('click', '#articutLaws', function (e) {
         $('#articutLaws').attr("disabled", true);
-        $('#articutLaws').html('<i class="fa fa-spinner fa-pulse"></i> 解析中 ...');
+        $('#articutLaws').html('<i class="fa fa-spinner fa-pulse"></i> 解析中，請稍候 ...');
         chrome.tabs.query({
             active: true,
             currentWindow: true
@@ -90,7 +90,9 @@ $(document).ready(function () {
                                 "api_key": api_key,
                                 "input_str": judText,
                                 "version": 'latest',
-                                "level": 'lv2'
+                                "level": 'lv2',
+                                "source": 'ChExt',
+                                "note": 'Articut 法學資料檢索助理'
                             }),
                             success: function (resp) {
                                 if (resp.status) {

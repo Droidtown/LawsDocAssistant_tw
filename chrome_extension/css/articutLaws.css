@@ -124,6 +124,8 @@ nav .navbar-brand-title {
 
 .badge {
     font-size: 18px;
+    display: inline;
+    white-space: normal;
 }
 
 .articutAlertTitle {
